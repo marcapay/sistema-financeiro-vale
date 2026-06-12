@@ -1,0 +1,103 @@
+[
+  {
+    "id": "d001",
+    "Empreendimento": "Reserva Alta Vista",
+    "Fornecedor": "Gráfica Nacional Ltda",
+    "Descrição": "Pastas, folders e flyers (Zera Lotes)",
+    "Valor": 7460.0,
+    "Status": "Pendente",
+    "Categoria": "Marketing",
+    "Data": "2025-01-15"
+  },
+  {
+    "id": "d002",
+    "Empreendimento": "Reserva Alta Vista",
+    "Fornecedor": "Ápice Eventos Ltda",
+    "Descrição": "Locação de tenda 03x09",
+    "Valor": 4000.0,
+    "Status": "Pendente",
+    "Categoria": "Eventos",
+    "Data": "2025-01-18"
+  },
+  {
+    "id": "d003",
+    "Empreendimento": "Reserva Alta Vista",
+    "Fornecedor": "Rovênia Oliveira",
+    "Descrição": "Decoração da tenda e mobiliário",
+    "Valor": 1000.0,
+    "Status": "Pendente",
+    "Categoria": "Eventos",
+    "Data": "2025-01-20"
+  },
+  {
+    "id": "d004",
+    "Empreendimento": "Reserva Alta Vista",
+    "Fornecedor": "Márcio",
+    "Descrição": "Aluguel de pergolado",
+    "Valor": 2000.0,
+    "Status": "Pendente",
+    "Categoria": "Eventos",
+    "Data": "2025-01-22"
+  },
+  {
+    "id": "d005",
+    "Empreendimento": "Reserva Alta Vista",
+    "Fornecedor": "Distribuidora Água Cristalina",
+    "Descrição": "Fornecimento de água",
+    "Valor": 3332.92,
+    "Status": "Pendente",
+    "Categoria": "Suprimentos",
+    "Data": "2025-02-01"
+  },
+  {
+    "id": "d006",
+    "Empreendimento": "Reserva Alta Vista",
+    "Fornecedor": "Artpanific Ltda",
+    "Descrição": "Fornecimento de lanches",
+    "Valor": 1996.62,
+    "Status": "Pendente",
+    "Categoria": "Alimentação",
+    "Data": "2025-02-05"
+  },
+  {
+    "id": "d007",
+    "Empreendimento": "Reserva Alta Vista",
+    "Fornecedor": "Ângela Todeschini",
+    "Descrição": "Pedras Brancas 15kg",
+    "Valor": 250.0,
+    "Status": "Pago",
+    "Categoria": "Materiais",
+    "Data": "2025-02-10"
+  },
+  {
+    "id": "d008",
+    "Empreendimento": "Reserva Alta Vista",
+    "Fornecedor": "Ângela Todeschini",
+    "Descrição": "Cesto Fechado com Tampa 30L",
+    "Valor": 70.0,
+    "Status": "Pago",
+    "Categoria": "Materiais",
+    "Data": "2025-02-10"
+  },
+  {
+    "id": "d009",
+    "Empreendimento": "Manancial",
+    "Fornecedor": "Emília Festas",
+    "Descrição": "Locação de mesas e cadeiras",
+    "Valor": 80.0,
+    "Status": "Pendente",
+    "Categoria": "Eventos",
+    "Data": "2025-02-15"
+  },
+  {
+    "id": "d010",
+    "Empreendimento": "Manancial",
+    "Fornecedor": "Marcelo Marques",
+    "Descrição": "Corrente, cadeado e caixa de isopor",
+    "Valor": 327.0,
+    "Status": "Pendente",
+    "Categoria": "Materiais",
+    "Data": "2025-02-18",
+    "Pix": ""
+  }
+]
