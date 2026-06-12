@@ -506,6 +506,7 @@ elif "Novo Lançamento" in pagina:
             nova_desc = st.text_input("📝 Descrição do Produto/Serviço *")
             novo_valor = st.number_input("💰 Valor (R$) *", min_value=0.0, step=10.0, format="%.2f")
             novo_pix = st.text_input("🔑 Chave PIX (opcional)")
+            novo_banco = st.text_input("🏦 Dados Bancários (Agência, Conta, Favorecido)")
             novo_status = st.selectbox("📌 Status", ["Pendente", "Pago"])
             st.markdown("<div style='height:28px'></div>", unsafe_allow_html=True)
 
@@ -526,6 +527,7 @@ elif "Novo Lançamento" in pagina:
                     "Descrição": nova_desc,
                     "Valor": novo_valor,
                     "Pix": novo_pix,
+                    "DadosBancarios": novo_banco,
                     "Status": novo_status,
                     "Categoria": nova_cat,
                     "Data": str(nova_data),
@@ -594,8 +596,8 @@ elif "Histórico Completo" in pagina:
         if h_cat != "Todas": df_hist = df_hist[df_hist["Categoria"] == h_cat]
         if h_forn != "Todos": df_hist = df_hist[df_hist["Fornecedor"] == h_forn]
 
-        # Ordenar em ordem alfabética pelo Fornecedor
-        df_hist = df_hist.sort_values(by="Fornecedor", ascending=True)
+        # Ordenar em ordem alfabética pelo Fornecedor e corrigir nulos
+        df_hist = df_hist.sort_values(by="Fornecedor", ascending=True).fillna('')
 
         total_f = df_hist["Valor"].sum()
         pend_f = df_hist[df_hist["Status"] == "Pendente"]["Valor"].sum()
@@ -731,6 +733,7 @@ tr:nth-child(even) {{ background: #f8f9fa; }}
 </div>
 <div style="font-size:26px; font-weight:700; color:#ffffff; margin-bottom:10px;">{row['Fornecedor']}</div>
 <div style="font-size:18px; color:#cbd5e1; margin-bottom:12px; line-height:1.4;">📝 {row['Descrição']}</div>
+{f'<div style="font-size:16px; color:#93c5fd; margin-bottom:12px; font-weight:600; background:rgba(147,197,253,0.1); padding:6px 12px; border-radius:6px; display:inline-block;">🏦 Banco: {row.get("DadosBancarios")}</div><br>' if row.get('DadosBancarios') else ''}
 <div style="font-size:16px; color:#6ee7b7; margin-bottom:14px; display:flex; align-items:center; gap:8px;">
     🔑 PIX: 
     <input type="text" value="{row.get('Pix', '')}" id="pix_{rid}" style="background:transparent; border:none; color:#6ee7b7; font-weight:bold; width:220px; outline:none; font-size:16px;" readonly>
@@ -802,6 +805,7 @@ tr:nth-child(even) {{ background: #f8f9fa; }}
                             e_desc = st.text_input("Descrição", value=row.get("Descrição", ""))
                             e_val = st.number_input("Valor", value=float(row.get("Valor", 0.0)), format="%.2f")
                             e_pix = st.text_input("Chave PIX", value=row.get("Pix", ""))
+                            e_banco = st.text_input("Dados Bancários", value=row.get("DadosBancarios", ""))
                             e_stat = st.selectbox("Status", ["Pendente", "Pago"], index=0 if row.get("Status")=="Pendente" else 1)
                         if st.form_submit_button("Salvar Alterações", use_container_width=True):
                             lista_atualizada = carregar_despesas()
@@ -813,6 +817,7 @@ tr:nth-child(even) {{ background: #f8f9fa; }}
                                     d["Descrição"] = e_desc
                                     d["Valor"] = e_val
                                     d["Pix"] = e_pix
+                                    d["DadosBancarios"] = e_banco
                                     d["Status"] = e_stat
                                     break
                             salvar_despesas(lista_atualizada)
