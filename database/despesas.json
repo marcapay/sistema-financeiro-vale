@@ -7,8 +7,7 @@
     "Valor": 7460.0,
     "Status": "Pendente",
     "Categoria": "Marketing",
-    "Data": "2025-01-15",
-    "DadosBancarios": ""
+    "Data": "2025-01-15"
   },
   {
     "id": "d002",
@@ -16,21 +15,23 @@
     "Fornecedor": "Ápice Eventos Ltda",
     "Descrição": "Locação de tenda 03x09",
     "Valor": 4000.0,
+    "Pix": "57.172.337/0001-01",
+    "DadosBancarios": "Banco Cooperativo do Brasil | Ag: 3137 | CC: 486540",
     "Status": "Pendente",
     "Categoria": "Eventos",
-    "Data": "2025-01-18",
-    "DadosBancarios": ""
+    "Data": "2025-01-18"
   },
   {
     "id": "d003",
     "Empreendimento": "Reserva Alta Vista",
     "Fornecedor": "Rovênia Oliveira",
     "Descrição": "Decoração da tenda e mobiliário",
-    "Valor": 1000.0,
+    "Valor": 6600.0,
+    "Pix": "31.110.860/0001-01",
+    "DadosBancarios": "Credileste | Ag: 4346 | CC: 9.386-6",
     "Status": "Pendente",
     "Categoria": "Eventos",
-    "Data": "2025-01-20",
-    "DadosBancarios": ""
+    "Data": "2025-01-20"
   },
   {
     "id": "d004",
@@ -38,10 +39,11 @@
     "Fornecedor": "Márcio",
     "Descrição": "Aluguel de pergolado",
     "Valor": 2000.0,
+    "Pix": "",
+    "DadosBancarios": "Necessário solicitar chave PIX",
     "Status": "Pendente",
     "Categoria": "Eventos",
-    "Data": "2025-01-22",
-    "DadosBancarios": ""
+    "Data": "2025-01-22"
   },
   {
     "id": "d005",
@@ -49,10 +51,11 @@
     "Fornecedor": "Distribuidora Água Cristalina",
     "Descrição": "Fornecimento de água",
     "Valor": 3332.92,
+    "Pix": "(33) 99953-4544",
+    "DadosBancarios": "Banco 756 | Ag: 4346 | CC: 1891-0",
     "Status": "Pendente",
     "Categoria": "Suprimentos",
-    "Data": "2025-02-01",
-    "DadosBancarios": ""
+    "Data": "2025-02-01"
   },
   {
     "id": "d006",
@@ -60,10 +63,11 @@
     "Fornecedor": "Artpanific Ltda",
     "Descrição": "Fornecimento de lanches",
     "Valor": 1996.62,
+    "Pix": "54.390.926/0001-60",
+    "DadosBancarios": "Sicoob Credileste (756) | Ag: 4356 | CC: 31.403-0",
     "Status": "Pendente",
     "Categoria": "Alimentação",
-    "Data": "2025-02-05",
-    "DadosBancarios": ""
+    "Data": "2025-02-05"
   },
   {
     "id": "d007",
@@ -73,8 +77,7 @@
     "Valor": 250.0,
     "Status": "Pendente",
     "Categoria": "Materiais",
-    "Data": "2025-02-10",
-    "DadosBancarios": ""
+    "Data": "2025-02-10"
   },
   {
     "id": "d008",
@@ -84,8 +87,7 @@
     "Valor": 70.0,
     "Status": "Pendente",
     "Categoria": "Materiais",
-    "Data": "2025-02-10",
-    "DadosBancarios": ""
+    "Data": "2025-02-10"
   },
   {
     "id": "d009",
@@ -95,8 +97,7 @@
     "Valor": 80.0,
     "Status": "Pendente",
     "Categoria": "Eventos",
-    "Data": "2025-02-15",
-    "DadosBancarios": ""
+    "Data": "2025-02-15"
   },
   {
     "id": "d010",
@@ -106,8 +107,6 @@
     "Valor": 327.0,
     "Status": "Pendente",
     "Categoria": "Materiais",
-    "Data": "2025-02-18",
-    "Pix": "",
-    "DadosBancarios": ""
+    "Data": "2025-02-18"
   }
 ]
