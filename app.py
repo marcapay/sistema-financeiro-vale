@@ -30,8 +30,8 @@ DADOS_INICIAIS = [
     {"id": "d004", "Empreendimento": "Reserva Alta Vista", "Fornecedor": "Márcio", "Descrição": "Aluguel de pergolado", "Valor": 2000.00, "Status": "Pendente", "Categoria": "Eventos", "Data": "2025-01-22"},
     {"id": "d005", "Empreendimento": "Reserva Alta Vista", "Fornecedor": "Distribuidora Água Cristalina", "Descrição": "Fornecimento de água", "Valor": 3332.92, "Status": "Pendente", "Categoria": "Suprimentos", "Data": "2025-02-01"},
     {"id": "d006", "Empreendimento": "Reserva Alta Vista", "Fornecedor": "Artpanific Ltda", "Descrição": "Fornecimento de lanches", "Valor": 1996.62, "Status": "Pendente", "Categoria": "Alimentação", "Data": "2025-02-05"},
-    {"id": "d007", "Empreendimento": "Reserva Alta Vista", "Fornecedor": "Ângela Todeschini", "Descrição": "Pedras Brancas 15kg", "Valor": 250.00, "Status": "Pago", "Categoria": "Materiais", "Data": "2025-02-10"},
-    {"id": "d008", "Empreendimento": "Reserva Alta Vista", "Fornecedor": "Ângela Todeschini", "Descrição": "Cesto Fechado com Tampa 30L", "Valor": 70.00, "Status": "Pago", "Categoria": "Materiais", "Data": "2025-02-10"},
+    {"id": "d007", "Empreendimento": "Reserva Alta Vista", "Fornecedor": "Ângela Todeschini", "Descrição": "Pedras Brancas 15kg", "Valor": 250.00, "Status": "Pendente", "Categoria": "Materiais", "Data": "2025-02-10"},
+    {"id": "d008", "Empreendimento": "Reserva Alta Vista", "Fornecedor": "Ângela Todeschini", "Descrição": "Cesto Fechado com Tampa 30L", "Valor": 70.00, "Status": "Pendente", "Categoria": "Materiais", "Data": "2025-02-10"},
     {"id": "d009", "Empreendimento": "Manancial", "Fornecedor": "Emília Festas", "Descrição": "Locação de mesas e cadeiras", "Valor": 80.00, "Status": "Pendente", "Categoria": "Eventos", "Data": "2025-02-15"},
     {"id": "d010", "Empreendimento": "Manancial", "Fornecedor": "Marcelo Marques", "Descrição": "Corrente, cadeado e caixa de isopor", "Valor": 327.00, "Status": "Pendente", "Categoria": "Materiais", "Data": "2025-02-18"},
 ]
@@ -733,7 +733,7 @@ tr:nth-child(even) {{ background: #f8f9fa; }}
 </div>
 <div style="font-size:26px; font-weight:700; color:#ffffff; margin-bottom:10px;">{row['Fornecedor']}</div>
 <div style="font-size:18px; color:#cbd5e1; margin-bottom:12px; line-height:1.4;">📝 {row['Descrição']}</div>
-{f'<div style="font-size:16px; color:#93c5fd; margin-bottom:12px; font-weight:600; background:rgba(147,197,253,0.1); padding:6px 12px; border-radius:6px; display:inline-block;">🏦 Banco: {row.get("DadosBancarios")}</div><br>' if row.get('DadosBancarios') else ''}
+<div style="font-size:16px; color:#93c5fd; margin-bottom:12px; font-weight:600; background:rgba(147,197,253,0.1); padding:6px 12px; border-radius:6px; display:inline-block;">🏦 Banco/Dados: {row.get("DadosBancarios") if row.get("DadosBancarios") else "Não informado"}</div><br>
 <div style="font-size:16px; color:#6ee7b7; margin-bottom:14px; display:flex; align-items:center; gap:8px;">
     🔑 PIX: 
     <input type="text" value="{row.get('Pix', '')}" id="pix_{rid}" style="background:transparent; border:none; color:#6ee7b7; font-weight:bold; width:220px; outline:none; font-size:16px;" readonly>
@@ -767,7 +767,14 @@ tr:nth-child(even) {{ background: #f8f9fa; }}
                         salvar_despesas(lista_atualizada)
                         st.rerun()
                 else:
-                    st.markdown("<span style='color:#6ee7b7; font-size:12px; font-weight:600;'>✅ Pago</span>", unsafe_allow_html=True)
+                    if st.button("↩️ Desfazer", key=f"pendente_{rid}", help="Voltar status para Pendente", use_container_width=True):
+                        lista_atualizada = carregar_despesas()
+                        for d in lista_atualizada:
+                            if d["id"] == rid:
+                                d["Status"] = "Pendente"
+                                break
+                        salvar_despesas(lista_atualizada)
+                        st.rerun()
             with btn2:
                 if st.button("🗑️ Excluir", key=f"del_{rid}", help="Excluir lançamento", use_container_width=True):
                     st.session_state.confirmando_exclusao = rid

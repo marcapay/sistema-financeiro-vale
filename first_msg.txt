@@ -1,0 +1,99 @@
+<USER_REQUEST>
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+# 1. Configuração da Página e Temas (Cores da Logo da Vale Construtora)
+st.set_page_config(
+    page_title="Vale Construtora - Controle Financeiro",
+    page_icon="📊",
+    layout="wide"
+)
+
+# Injeção de CSS para estilização personalizada com as cores do cliente
+st.markdown("""
+    <style>
+        /* Cores principais da identidade */
+        :root {
+            --azul-escuro: #0B2545;
+            --azul-royal: #134074;
+            --amarelo-ouro: #EEB902;
+        }
+        .main {
+            background-color: #F4F6F9;
+        }
+        h1, h2, h3 {
+            color: #0B2545 !important;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        .stMetric {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 5px solid #134074;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# 2. Cabeçalho com Identidade Visual
+st.title("📊 Sistema de Gestão de Acertos e Empreendimentos")
+st.subheader("Vale Construtora e Engenharia")
+
+st.markdown("---")
+
+# 3. Base de Dados Integrada (Dados do Relatório Atual)
+if 'df_despesas' not in st.session_state:
+    data = [
+        {"Empreendimento": "Reserva Alta Vista", "Fornecedor": "Gráfica Nacional Ltda", "Descrição": "Pastas, folders e flyers (Zera Lotes)", "Valor": 7460.00, "Status": "Pendente"},
+        {"Empreendimento": "Reserva Alta Vista", "Fornecedor": "Ápice Eventos Ltda", "Descrição": "Locação de tenda 03x09", "Valor": 4000.00, "Status": "Pendente"},
+        {"Empreendimento": "Reserva Alta Vista", "Fornecedor": "Rovênia Oliveira", "Descrição": "Decoração da tenda e mobiliário", "Valor": 6600.00, "Status": "Pendente"},
+        {"Empreendimento": "Reserva Alta Vista", "Fornecedor": "Márcio", "Descrição": "Aluguel de pergolado", "Valor": 2000.00, "Status": "Pendente"},
+        {"Empreendimento": "Reserva Alta Vista", "F
+<truncated 2298 bytes>
+# 🏗️ Custos por Obra")
+    # Gráfico com as cores da identidade visual (Azul escuro e Azul Royal)
+    fig = px.pie(
+        df, 
+        values='Valor', 
+        names='Empreendimento', 
+        color_discrete_sequence=['#0B2545', '#134074', '#EEB902']
+    )
+    fig.update_layout(margin=dict(t=0, b=0, l=0, r=0))
+    st.plotly_chart(fig, use_container_width=True)
+
+# 6. Formulário de Rápido Lançamento (Para novas notas em tempo real)
+st.markdown("---")
+with st.expander("➕ Adicionar Novo Lançamento Manual"):
+    with st.form("novo_lancamento"):
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            novo_emp = st.selectbox("Empreendimento", ["Reserva Alta Vista", "Manancial"])
+            novo_forn = st.text_input("Fornecedor")
+        with c2:
+            nova_desc = st.text_input("Descrição do Produto/Serviço")
+            novo_valor = st.number_input("Valor (R$)", min_value=0.0, step=10.0)
+        with c3:
+            novo_status = st.selectbox("Status Inicial", ["Pendente", "Pago"])
+            st.write("")
+            st.write("")
+            submit = st.form_submit_button("Registrar na Base")
+            
+        if submit and novo_forn:
+            novo_dado = {
+                "Empreendimento": novo_emp,
+                "Fornecedor": novo_forn,
+                "Descrição": nova_desc,
+                "Valor": novo_valor,
+                "Status": novo_status
+            }
+            st.session_state.df_despesas = pd.concat([st.session_state.df_despesas, pd.DataFrame([novo_dado])], ignore_index=True)
+            st.success("Lançamento adicionado com sucesso!")
+            st.rerun()
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T11:30:26-03:00.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Claude Opus 4.6 (Thinking). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>

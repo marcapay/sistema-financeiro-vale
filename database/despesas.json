@@ -7,7 +7,8 @@
     "Valor": 7460.0,
     "Status": "Pendente",
     "Categoria": "Marketing",
-    "Data": "2025-01-15"
+    "Data": "2025-01-15",
+    "DadosBancarios": ""
   },
   {
     "id": "d002",
@@ -17,7 +18,8 @@
     "Valor": 4000.0,
     "Status": "Pendente",
     "Categoria": "Eventos",
-    "Data": "2025-01-18"
+    "Data": "2025-01-18",
+    "DadosBancarios": ""
   },
   {
     "id": "d003",
@@ -27,7 +29,8 @@
     "Valor": 1000.0,
     "Status": "Pendente",
     "Categoria": "Eventos",
-    "Data": "2025-01-20"
+    "Data": "2025-01-20",
+    "DadosBancarios": ""
   },
   {
     "id": "d004",
@@ -37,7 +40,8 @@
     "Valor": 2000.0,
     "Status": "Pendente",
     "Categoria": "Eventos",
-    "Data": "2025-01-22"
+    "Data": "2025-01-22",
+    "DadosBancarios": ""
   },
   {
     "id": "d005",
@@ -47,7 +51,8 @@
     "Valor": 3332.92,
     "Status": "Pendente",
     "Categoria": "Suprimentos",
-    "Data": "2025-02-01"
+    "Data": "2025-02-01",
+    "DadosBancarios": ""
   },
   {
     "id": "d006",
@@ -57,7 +62,8 @@
     "Valor": 1996.62,
     "Status": "Pendente",
     "Categoria": "Alimentação",
-    "Data": "2025-02-05"
+    "Data": "2025-02-05",
+    "DadosBancarios": ""
   },
   {
     "id": "d007",
@@ -65,9 +71,10 @@
     "Fornecedor": "Ângela Todeschini",
     "Descrição": "Pedras Brancas 15kg",
     "Valor": 250.0,
-    "Status": "Pago",
+    "Status": "Pendente",
     "Categoria": "Materiais",
-    "Data": "2025-02-10"
+    "Data": "2025-02-10",
+    "DadosBancarios": ""
   },
   {
     "id": "d008",
@@ -75,9 +82,10 @@
     "Fornecedor": "Ângela Todeschini",
     "Descrição": "Cesto Fechado com Tampa 30L",
     "Valor": 70.0,
-    "Status": "Pago",
+    "Status": "Pendente",
     "Categoria": "Materiais",
-    "Data": "2025-02-10"
+    "Data": "2025-02-10",
+    "DadosBancarios": ""
   },
   {
     "id": "d009",
@@ -87,7 +95,8 @@
     "Valor": 80.0,
     "Status": "Pendente",
     "Categoria": "Eventos",
-    "Data": "2025-02-15"
+    "Data": "2025-02-15",
+    "DadosBancarios": ""
   },
   {
     "id": "d010",
@@ -98,6 +107,7 @@
     "Status": "Pendente",
     "Categoria": "Materiais",
     "Data": "2025-02-18",
-    "Pix": ""
+    "Pix": "",
+    "DadosBancarios": ""
   }
 ]

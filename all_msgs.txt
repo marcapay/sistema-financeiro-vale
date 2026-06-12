@@ -1,0 +1,246 @@
+<USER_REQUEST>
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+# 1. Configuração da Página e Temas (Cores da Logo da Vale Construtora)
+st.set_page_config(
+    page_title="Vale Construtora - Controle Financeiro",
+    page_icon="📊",
+    layout="wide"
+)
+
+# Injeção de CSS para estilização personalizada com as cores do cliente
+st.markdown("""
+    <style>
+        /* Cores principais da identidade */
+        :root {
+            --azul-escuro: #0B2545;
+            --azul-royal: #134074;
+            --amarelo-ouro: #EEB902;
+        }
+        .main {
+            background-color: #F4F6F9;
+        }
+        h1, h2, h3 {
+            color: #0B2545 !important;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        .stMetric {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 5px solid #134074;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# 2. Cabeçalho com Identidade Visual
+st.title("📊 Sistema de Gestão de Acertos e Empreendimentos")
+st.subheader("Vale Construtora e Engenharia")
+
+st.markdown("---")
+
+# 3. Base de Dados Integrada (Dados do Relatório Atual)
+if 'df_despesas' not in st.session_state:
+    data = [
+        {"Empreendimento": "Reserva Alta Vista", "Fornecedor": "Gráfica Nacional Ltda", "Descrição": "Pastas, folders e flyers (Zera Lotes)", "Valor": 7460.00, "Status": "Pendente"},
+        {"Empreendimento": "Reserva Alta Vista", "Fornecedor": "Ápice Eventos Ltda", "Descrição": "Locação de tenda 03x09", "Valor": 4000.00, "Status": "Pendente"},
+        {"Empreendimento": "Reserva Alta Vista", "Fornecedor": "Rovênia Oliveira", "Descrição": "Decoração da tenda e mobiliário", "Valor": 6600.00, "Status": "Pendente"},
+        {"Empreendimento": "Reserva Alta Vista", "Fornecedor": "Márcio", "Descrição": "Aluguel de pergolado", "Valor": 2000.00, "Status": "Pendente"},
+        {"Empreendimento": "Reserva Alta Vista", "F
+<truncated 2298 bytes>
+# 🏗️ Custos por Obra")
+    # Gráfico com as cores da identidade visual (Azul escuro e Azul Royal)
+    fig = px.pie(
+        df, 
+        values='Valor', 
+        names='Empreendimento', 
+        color_discrete_sequence=['#0B2545', '#134074', '#EEB902']
+    )
+    fig.update_layout(margin=dict(t=0, b=0, l=0, r=0))
+    st.plotly_chart(fig, use_container_width=True)
+
+# 6. Formulário de Rápido Lançamento (Para novas notas em tempo real)
+st.markdown("---")
+with st.expander("➕ Adicionar Novo Lançamento Manual"):
+    with st.form("novo_lancamento"):
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            novo_emp = st.selectbox("Empreendimento", ["Reserva Alta Vista", "Manancial"])
+            novo_forn = st.text_input("Fornecedor")
+        with c2:
+            nova_desc = st.text_input("Descrição do Produto/Serviço")
+            novo_valor = st.number_input("Valor (R$)", min_value=0.0, step=10.0)
+        with c3:
+            novo_status = st.selectbox("Status Inicial", ["Pendente", "Pago"])
+            st.write("")
+            st.write("")
+            submit = st.form_submit_button("Registrar na Base")
+            
+        if submit and novo_forn:
+            novo_dado = {
+                "Empreendimento": novo_emp,
+                "Fornecedor": novo_forn,
+                "Descrição": nova_desc,
+                "Valor": novo_valor,
+                "Status": novo_status
+            }
+            st.session_state.df_despesas = pd.concat([st.session_state.df_despesas, pd.DataFrame([novo_dado])], ignore_index=True)
+            st.success("Lançamento adicionado com sucesso!")
+            st.rerun()
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T11:30:26-03:00.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Claude Opus 4.6 (Thinking). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
+
+---NEW MSG---
+
+<USER_REQUEST>
+melhore  com as cores  da logo seu layute esta horrivel 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T11:41:06-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+os  botões  precisam funcionar    e  abrir  todo istorico que ja te dei  para que  vizuaklize todos os devbitos  a pagar 
+
+criar de uma vez  em cada  fornecedor  uma  janela para abnexar pdf  e fotos de  docuemntos 
+
+criar  icones de lixeira e dowloud 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T11:54:45-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+caso precise  criar  vc mesmo a pasta do database  para armazenamento 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T11:57:15-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+melhore o visual desta tela
+aumente as letras 
+coloque dentro de uma caixa fundo com uma cor sugestivav
+inclua um botão de talho  para  ver  tudo 
+inclua botão de relatorio impressora
+inclua  o botão para mudar estatus  para pago
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T12:13:31-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+corrija  alogo da vale  contrutora  melhore esta mas mantenha  nitida
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T12:15:32-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+passe esta linha para um menu lateral 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T12:18:34-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+me  fale em portugues  parou porque ???
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T12:21:12-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+faça
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T12:22:17-03:00.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from Claude Opus 4.6 (Thinking) to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
+
+---NEW MSG---
+
+<USER_REQUEST>
+CONTINUE   DE ONDE PARAMOSD 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T20:27:46-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+ESTOU VENDO TUDO  COM CODIGO TEM QUE SER  COM TESTO CONFORME COLOQUEI 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T20:31:05-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+AINDA ESTA A MESMA COISA
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T20:32:32-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+insira um botão de editar  e um botão de  subir os documento dowloud
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T20:35:04-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+insira   o numero do  pix tambem  nestas descrições aumente um pouco tamanho da letra 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T20:41:18-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+coloque em ordem alfabetica  
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T20:42:33-03:00.
+</ADDITIONAL_METADATA>
+
+---NEW MSG---
+
+<USER_REQUEST>
+revise o texto e arquivos que te  passei  alguns deles tem pix  insira   e permitar um clique  para copiar 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-11T20:43:24-03:00.
+</ADDITIONAL_METADATA>
